@@ -11,8 +11,8 @@ If you don't want to use the provided installer (`png_to_ico_setup.exe`), drag &
 
 ![](demo/Demo.gif)
 
-Default included resolutions in ICO files are 256x256, 128x128, 96x96, 64x64, 48x48, 32x32, 24x24, and 16x16 pixels.
-Icons are generated in same folder as original image files, with corresponding filename.   
+Default included resolutions in ICO files are 256x256, 128x128, 96x96, 64x64, 48x48, 32x32, 24x24, and 16x16 pixels.  
+Icons are generated in same folder as original image files, with corresponding filename.  
 Stable version of [ImageMagick](https://www.imagemagick.org/script/index.php) `convert` program is built-in.
 
 ## Requirements
