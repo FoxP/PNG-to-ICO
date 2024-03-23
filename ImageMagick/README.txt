@@ -5,37 +5,40 @@ Introduction to ImageMagick
   200) including PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript,
   PDF, and SVG. Use ImageMagick to resize, flip, mirror, rotate, distort,
   shear and transform images, adjust image colors, apply various special
-  effects, or draw text, lines, polygons, ellipses and Bézier curves.
+  effects, or draw text, lines, polygons, ellipses and Bezier curves.
   
   The functionality of ImageMagick is typically utilized from the command
   line or you can use the features from programs written in your favorite
   language. Choose from these interfaces: G2F (Ada), MagickCore (C),
-  MagickWand (C), ChMagick (Ch), ImageMagickObject (COM+), Magick++ (C++),
+  MagickWand (C), ChMagick (Ch), Magick++ (C++),
   JMagick (Java), L-Magick (Lisp), Lua, NMagick (Neko/haXe), Magick.NET
   (.NET), PascalMagick (Pascal), PerlMagick (Perl), MagickWand for PHP
   (PHP), IMagick (PHP), PythonMagick (Python), RMagick (Ruby), or TclMagick
   (Tcl/TK). With a language interface, use ImageMagick to modify or create
   images dynamically and automagically.
 
-  ImageMagick utilizes multiple computational threads to increase performance
+  ImageMagick utilize multiple computational threads to increase performance
   and can read, process, or write mega-, giga-, or tera-pixel image sizes.
   
   ImageMagick is free software delivered as a ready-to-run binary distribution
   or as source code that you may use, copy, modify, and distribute in both open
-  and proprietary applications. It is distributed under the Apache 2.0 license.
+  and proprietary applications. It is distributed under a derived Apache 2.0
+  license.
   
   The ImageMagick development process ensures a stable API and ABI. Before
   each ImageMagick release, we perform a comprehensive security assessment
   that includes memory error and thread data race detection to prevent
   security vulnerabilities.
 
-  ImageMagick is available from
-  https://www.imagemagick.org/script/download.php.  It runs on Linux, Windows,
-  Mac Os X, iOS, Android OS, and others.
+  The current release is the ImageMagick 7.0.11-* series. It runs on Linux,
+  Windows, Mac Os X, iOS, Android OS, and others.
 
-  The authoritative ImageMagick web site is https://www.imagemagick.org. The
-  authoritative source code repository is https://github.com/ImageMagick. We
-  maintain a source code mirror at https://gitlab.com/ImageMagick.
+  The authoritative ImageMagick web site is https://imagemagick.org. The
+  authoritative source code repository is
+  https://github.com/ImageMagick/ImageMagick.
+
+  We continue to maintain the legacy release of ImageMagick, version 6,
+  at https://legacy.imagemagick.org.
 
 
 Features and Capabilities
@@ -52,7 +55,7 @@ Features and Capabilities
       * Animation: create a GIF animation sequence from a group of images.
       * Text & comments: insert descriptive or artistic text in an image.
       * Image gradients: create a gradual blend of one color whose shape is 
-        horizontal, vertical, circular, or ellipical.
+        horizontal, vertical, circular, or elliptical.
       * Image identification: describe the format and attributes of an image.
       * Composite: overlap one image over another.
       * Montage: juxtapose image thumbnails on an image canvas.
@@ -75,6 +78,8 @@ Features and Capabilities
       * Color management: accurate color management with color profiles or in
         lieu of-- built-in gamma compression or expansion as demanded by the
         colorspace.
+      * Bilateral blur: non-linear, edge-preserving, and noise-reducing
+        smoothing filter.
       * High dynamic-range images: accurately represent the wide range of
         intensity levels found in real scenes ranging from the brightest direct
         sunlight to the deepest darkest shadows.
@@ -96,10 +101,39 @@ Features and Capabilities
       * ImageMagick on the iPhone: convert, edit, or compose images on your
         iPhone or iPad.
   
-  Examples of ImageMagick Usage shows how to use ImageMagick from the
-  command-line to accomplish any of these tasks and much more. Also,
-  see Fred's ImageMagick Scripts: a plethora of command-line scripts that
-  perform geometric transforms, blurs, sharpens, edging, noise removal,
+  Examples of ImageMagick Usage * https://legacy.imagemagick.org/Usage/
+  shows how to use ImageMagick from the command-line to accomplish any
+  of these tasks and much more. Also, see Fred's ImageMagick Scripts @
+  http://www.fmwconcepts.com/imagemagick/: a plethora of command-line scripts
+  that perform geometric transforms, blurs, sharpens, edging, noise removal,
   and color manipulations. With Magick.NET, use ImageMagick without having
   to install ImageMagick on your server or desktop.
 
+
+News
+
+  ImageMagick best practices strongly encourages you to configure a security
+  policy that suits your local environment.
+
+  Now that ImageMagick version 7 is released, we continue
+  to maintain the legacy release of ImageMagick, version 6, at
+  https://legacy.imagemagick.org. Learn how ImageMagick version 7 differs
+  from previous versions with our porting guide.
+
+  Want more performance from ImageMagick? Try these options:
+
+    * add more memory to your system, see the pixel cache;
+    * add more cores to your system, see threads of execution support;
+    * reduce lock contention with the tcmalloc memory allocation library;
+    * push large images to a solid-state drive, see large image support.
+
+  If these options are prohibitive, you can reduce the quality of the image
+  results. The default build is Q16 HDRI. If you disable HDRI, you use
+  half the memory and instead of predominantly floating point operations,
+  you use the typically more efficient integer operations. The tradeoff
+  is reduced precision and you cannot process out of range pixel values
+  (e.g. negative). If you build the Q8 non-HDRI version of ImageMagick,
+  you again reduce the memory requirements in half-- and once again there
+  is a tradeoff, even less precision and no out of range pixel values. For
+  a Q8 non-HDRI build of ImageMagick, use these configure script options:
+  --with-quantum-depth=8 --disable-hdri.
