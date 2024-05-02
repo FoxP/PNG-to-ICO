@@ -45,6 +45,3 @@ REM If first argument is a file
 		REM Convert file to multi-resolution ICO
 		"%directoryPath%ImageMagick\convert.exe" %argPath% -resize 256x256^> -background none -gravity center -extent 256x256 -define icon:auto-resize=256,128,96,64,48,32,24,16 "%%~df%%~pf%%~nf.ico"
 	)
-)
-REM Wait 10 seconds, then exit script
-TIMEOUT 10
