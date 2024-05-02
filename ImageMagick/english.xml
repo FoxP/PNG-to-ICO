@@ -1145,6 +1145,9 @@
           <message name="MemoryAllocationFailed">
             memory allocation failed
           </message>
+          <message name="ProfileSizeExceedsLimit">
+            profile size exceeds limit
+          </message>
         </warning>
       </limit>
     </resource>
